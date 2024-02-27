@@ -7,17 +7,17 @@
 body{
     background-color: rgb(17, 22, 52);
     background-image: url("./images/Stars.png");
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: contain;
-    width: 100vw;
+}
+.ContenedorPrincipal{
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.ContainerLogin{
+.LoginContainer{
     background-color: rgb(27, 33, 65, 0.1) ;
     width: 430px;
     height: 70vh;
@@ -35,7 +35,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-.textFields{
+.CamposTexto{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -58,7 +58,7 @@ body{
     transition: 0.5s;
 }
 
-.textFields input{
+.CamposTexto input{
     width: 100%;
     padding: 12px 0px 12px 10px ;
     margin: 8px 5px;
@@ -68,27 +68,30 @@ body{
 .ContainerRemenber{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
+    position: relative;
 }
 .Remember{
     width: 100%;
     display: flex;
     color: aliceblue;
     font-size: 12px;
-    justify-content: start;
+    justify-content:start;
+    position: absolute;
+    right: 19px;
 }
 .Remember *{
     margin: 5px;
 }
-#Forgot{
-    color: rgb(64, 98, 168);
+
+
+.letrachiquita{
     font-size: 12px;
     white-space: nowrap;
-    margin: 5px;
-    cursor: pointer;
+    margin-left: auto;
 }
 
-.ButtonLogin{
+.Button{
     background-color: rgb(234, 64, 133);
     border-radius: 20px;
     color: aliceblue;
@@ -99,23 +102,3 @@ body{
     box-shadow: 5px 8px 12px 0 rgba(0,0,0,0.5);
     cursor: pointer;
 }
-
-.ButtonLogin:hover{
-    transition: 0.5s;
-    background-color: aliceblue;
-    color:  rgb(234, 64, 133);
-}
-
-@media (max-width: 430px) {
-    .ContainerLogin{
-        width: 330px;
-        height: 60vh;
-    }
-
-    .contend{
-        width: 90%;
-    }
-    body{
-        background-size:contain;
-    }
-  }
