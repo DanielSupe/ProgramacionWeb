@@ -19,8 +19,8 @@ body{
 
 .LoginContainer{
     background-color: rgb(27, 33, 65, 0.1) ;
-    width: 430px;
-    height: 70vh;
+    width: 450px;
+    height: 60vh;
     border-top: 6px solid rgb(91, 206, 147);
     box-shadow: 10px 16px 16px 0 rgba(0,0,0,0.5);
     display: flex;
@@ -28,8 +28,9 @@ body{
     justify-content: center;
     align-items: center;
 }
+
 .contend{
-    width: 70%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,3 +103,10 @@ body{
     box-shadow: 5px 8px 12px 0 rgba(0,0,0,0.5);
     cursor: pointer;
 }
+
+@media only screen and (max-width: 400px) {
+    .LoginContainer{
+        height: 100vh;
+        width: 100vw;
+    }
+  }
