@@ -1,59 +1,50 @@
-import { useEffect, useState } from 'react'
-import { maingetPokemon } from './Helpers/getPokemon'
+import React, { useEffect, useState } from 'react';
+import { maingetPokemon } from './Helpers/getPokemon';
 
 const App = () => {
+  const [pokemonID, setPokemonID] = useState(1);
+  const [pokemonData, setPokemonData] = useState(null);
 
-
-  const [pokemonID, setPokemon] = useState(1);
-  
-  const [pokemonDta, setPokemonData] = useState();
-
-
-  const funtion = async ()=>{
-    
-    if(pokemonID && pokemonID <= 1008){
+  const fetchData = async () => {
+    if (pokemonID && pokemonID <= 1008) {
       const pokemon = await maingetPokemon(pokemonID);
-      setPokemonData(pokemon)
+      setPokemonData(pokemon);
     }
+  };
 
-  }
+  const handlePokemonChange = (e) => {
+    setPokemonID(e.target.value);
+  };
 
+  useEffect(() => {
+    fetchData();
+  }, [pokemonID]);
 
-  const handlePokemon = (e)=>{
-    setPokemon(e.target.value)
-  }
-
-  useEffect(()=>{
-    funtion();
-  },[pokemonID])
-
-
-  useEffect(()=>{
-    console.log(pokemonDta, "dataa")
-  },[pokemonDta])
-
+  useEffect(() => {
+    console.log(pokemonData, "dataa");
+  }, [pokemonData]);
 
   return (
-    <div className=' w-screen h-screen flex justify-center items-center bg-no-repeat bg-current bg-left' style={{ backgroundImage: `url('fondo.jpg')` }}>
-      <div className=' w-[800px] h-[500px] bg-lime-300 flex flex-col justify-start items-center box-border p-2'>
-          <h1 className=' text-center text-5xl font-bold'>Pokedex</h1>
-          {pokemonDta ? (
-            <div className='h-full w-full flex justify-start items-center'>
-              <img className=' h-80' src={pokemonDta.sprites.front_default}  alt='pokemon'/>
-              <div className=' h-full w-1/3 flex justify-center items-center flex-col'>
-                <p className=' font-medium'>Name:{pokemonDta.species.name}</p>
-                <input type='number' value={pokemonID} onChange={(e)=>{handlePokemon(e)}}/>
-              </div>
+    <div className="flex justify-center items-center w-screen h-screen bg-no-repeat bg-cover bg-current bg-center" style={{ backgroundImage: "url('fondo.jpg')" }}>
+      <div className="w-96 bg-green-400 border border-solid border-black rounded-lg shadow-lg flex flex-col justify-start items-center p-8">
+        <h1 className="text-5xl font-bold text-center mb-4">Pokedex</h1>
+        {pokemonData && (
+          <div className="flex flex-col items-center">
+            <p className="font-medium mb-2 ">Name: {pokemonData.species.name}</p>
+            <img className="h-40 mb-2 border border-solid border-black rounded-lg bg-green-400" src={pokemonData.sprites.front_default} alt="pokemon"/>
+            <div className="flex flex-col items-center">
+            <input type="number" value={pokemonID} onChange={handlePokemonChange} className="px-2 py-1 border border-gray-300 rounded-md text-center w-full"/>
 
-
+            </div>
           </div>
-          ):null}
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+
 
 
 // const fetchData = async () => {
