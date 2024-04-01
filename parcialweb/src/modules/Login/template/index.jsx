@@ -2,16 +2,6 @@ import React, { useEffect } from 'react'
 import { sumarCuadros } from '../../../helpers/puntoLogico';
 const LoginTemplate = () => {
 
-
-    //-------------------------------------------!!!!!!!-------------------------------
-                                //PUNTO LOGICO
-    useEffect(() => {
-        console.log(sumarCuadros([1, 23, 453, 3267, 12354, 123456]));
-    }, [])
-
-
-    //--------------------------------------------!!!!!!------------------------------------------
-
     return (
         <div className=' w-screen h-screen flex justify-center items-center relative'>
             <div className=' h-full w-[40vw] bg-verdeLogin' >
